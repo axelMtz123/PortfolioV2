@@ -190,17 +190,17 @@ a:hover::after {
         background-color: transparent;
         border: none;
         margin-left: auto;
-        display: flex;
-        flex-direction: column;
-        gap: .5rem;
+        display: inline-block;
         z-index: 200;
     }
 
     .line {
         width: 2rem;
-        height: .01rem;
+        height: 3px;
+        border-radius: 12px;
         background-color: var(--font-color);
-        display: block
+        display: block;
+        margin: 6px 0;
     }
 }
 /* ==================
@@ -714,7 +714,6 @@ a:hover::after {
     z-index: 100;
     position: fixed;
     display: flex;
-    display: none;
  
 }
 

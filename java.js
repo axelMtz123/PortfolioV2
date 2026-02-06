@@ -103,8 +103,8 @@ if (window.innerWidth <= 500) {
 
     const navTl = gsap.timeline ({ paused: true, reversed: true})
 
-        .to(".line-1", { y: 7, rotate: 45, transformOrigin: "center center", duration: 0.3}) 
-        .to(".line-2", { y: 0, rotate: -45,  transformOrigin: "center center", duration: 0.3}, "<")
+        .to(".line-1", { y: 5, rotate: 45, transformOrigin: "center center", duration: 0.3}) 
+        .to(".line-2", { y: -4, rotate: -45,  transformOrigin: "center center", duration: 0.3}, "<")
 
         .to (nav, {
             yPercent: 0,
