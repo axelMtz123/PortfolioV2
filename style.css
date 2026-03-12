@@ -584,6 +584,18 @@ a:hover::after {
     .stack-card {
         position: static;
     }
+
+    .section-title h5 {
+        font-size: var(--fs-39);
+    }
+
+    .packages-title p {
+        width: 80%;
+    }
+
+    .service-subtitle {
+        width: 80%;
+    }
     
 }
 /* ==================
@@ -727,7 +739,6 @@ a:hover::after {
     z-index: 100;
     position: fixed;
     display: flex;
-    display: none;
 }
 
 .loader-left,
