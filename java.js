@@ -119,8 +119,15 @@ if (window.innerWidth <= 500) {
         });
 }
 
+gsap.to (".changing-circle", {
+    color: "#6A331D",
+    repeat: -1,
+    yoyo: true,
+    duration: 1
+})
+
 const flipTexts = document.querySelector(".flip-text")
-const texts = ["Design", "flow", "vision"]
+const texts = ["THE SKIN", "THE STUDIO", "THE WEB"]
 let index = 0;
 
 const textChangeTl = gsap.timeline({ paused: true });
