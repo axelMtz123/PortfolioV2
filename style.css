@@ -318,6 +318,7 @@ a:hover::after {
     background: var(--bg-gradient);
     min-height: 100vh;
     padding-top: var(--space-6);
+
 }
 
 .section-title h4{
@@ -389,6 +390,10 @@ a:hover::after {
     .about-me-title {
         width: 70%;
     }
+
+    .about-me-container {
+        margin-left: var(--space-2);
+    }
 }
 
 /*================
@@ -397,7 +402,7 @@ a:hover::after {
 .work {
     display: flex;
     justify-content: center;
-    min-height: 100vh;
+    min-height: 120vh;
     margin-top: var(--space-6);
 }
 

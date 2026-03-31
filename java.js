@@ -166,26 +166,30 @@ gsap.to (".marquee-track span", {
 })
 
 if (window.innerWidth >= 600) {
-    const hoverImg = document.getElementById ("hover-img")
-    document.querySelectorAll (".work-card").forEach (card => {
-        card.addEventListener ("mousemove", (e) => {
-            hoverImg.src = card.dataset.img;
-            hoverImg.style.opacity = 1;
+    const hoverImg = document.getElementById("hover-img")
+    document.querySelectorAll(".work-card").forEach(card => {
+    let isOpen = false;
 
-            hoverImg.style.left = e.clientX + "px";
-            hoverImg.style.top = e.clientY + "px";
-        })
-        card.addEventListener ("click", () => {
-            card.addEventListener("mousemove" ()) ? hoverImg.style.opacity = 0 : hoverImg.style.opacity = 1;
-        }) 
-        card.addEventListener ("mouseleave", () => {
-            hoverImg.style.opacity = 0;
-        })
+    card.addEventListener("mousemove", (e) => {
+        hoverImg.src = card.dataset.img;
+        hoverImg.style.opacity = 1;
+        hoverImg.style.left = e.clientX + "px";
+        hoverImg.style.top = e.clientY + "px";
     })
+
+    card.addEventListener("click", () => {
+        isOpen = !isOpen;
+        hoverImg.style.opacity = isOpen ? 0 : 1;
+    })
+
+    card.addEventListener("mouseleave", () => {
+        hoverImg.style.opacity = 0;
+    })
+})
 
     const cards = gsap.utils.toArray(".stack-card")
 
-    const stackTl = gsap.timeline ({ 
+    const stackTl = gsap.timeline({
         scrollTrigger: {
             trigger: ".services",
             start: "top top",
@@ -196,8 +200,8 @@ if (window.innerWidth >= 600) {
         }
     });
 
-    cards.forEach ((card, i) => {
-        stackTl.from (card, {
+    cards.forEach((card, i) => {
+        stackTl.from(card, {
             yPercent: 150,
             opacity: 0,
             duration: .3,
@@ -209,18 +213,25 @@ if (window.innerWidth >= 600) {
             duration: .5,
         }, "<")
     })
-
 }
 
-document.querySelectorAll (".workInner-card").forEach (card => {
-    let isExpanded = false
+let expandedCard = null;
 
+document.querySelectorAll(".workInner-card").forEach(card => {
+    card.addEventListener("click", () => {
+        if (expandedCard === card) {
+            gsap.to(card, { height: 40, duration: 0.4 });
+            expandedCard = null;
+            return;
+        }
 
-    card.addEventListener ("click", () => {
-        isExpanded
-            ? gsap.to(card, { height: 40, duration: 0.4 })
-            : gsap.to(card, { height: "auto", duration: 0.4 });
+      
+        if (expandedCard) {
+            gsap.to(expandedCard, { height: 40, duration: 0.4 });
+        }
 
-        isExpanded = !isExpanded;
+        // Open the clicked card
+        gsap.to(card, { height: "auto", duration: 0.4 });
+        expandedCard = card;
     })
 })
